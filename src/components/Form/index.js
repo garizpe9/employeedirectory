@@ -35,13 +35,12 @@ class Form extends Component {
   };
 
   render() {
-    // Notice how each input has a `value`, `name`, and `onChange` prop
     return (
-      <div>
+      <header className="footer">
         <p>
           Looking for {this.state.firstName} {this.state.lastName} ...
         </p>
-        <form className="form">
+   
           <input
             value={this.state.firstName}
             name="firstName"
@@ -57,8 +56,10 @@ class Form extends Component {
             placeholder="Last Name"
           />
           <button onClick={this.handleFormSubmit}>Submit</button>
-        </form>
-      </div>
+
+       
+      </header>
+      
     );
   }
 }

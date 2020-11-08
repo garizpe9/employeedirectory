@@ -15,10 +15,10 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <Wrapper>
-          <Form />
+        
           <Title>Employee Directory</Title>
-
+          <Form></Form>
+          <Wrapper>
           {this.state.worker.map(employee => (
             <EmployeeCard
               id={employee.id}
@@ -29,7 +29,8 @@ class App extends Component {
               location={employee.location}
             />
           ))}
-        </Wrapper>
+          
+          </Wrapper>
         </div>  
     );
   }
