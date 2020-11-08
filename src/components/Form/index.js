@@ -1,12 +1,9 @@
 import React, { Component } from "react";
 import "./style.css";
-
 class Form extends Component {
-  // Setting the component's initial state
   state = {
     firstName: "",
-    lastName: "",
-    
+   
   };
 
   handleInputChange = event => {
@@ -19,18 +16,12 @@ class Form extends Component {
   };
 
   handleFormSubmit = event => {
-    // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
-    if (!this.state.firstName || !this.state.lastName) {
-      alert("Fill out your first and last name please!");
-    
-    } else {
-      alert(`Hello ${this.state.firstName} ${this.state.lastName}`);
-    }
-
+    if (!this.state.firstName) { 
+      alert("Fill out name please!");
+    } 
     this.setState({
       firstName: "",
-      lastName: "",
     });
   };
 
@@ -38,7 +29,7 @@ class Form extends Component {
     return (
       <header className="footer">
         <p>
-          Looking for {this.state.firstName} {this.state.lastName} ...
+          Looking for {this.state.firstName}...
         </p>
    
           <input
@@ -46,18 +37,9 @@ class Form extends Component {
             name="firstName"
             onChange={this.handleInputChange}
             type="text"
-            placeholder="First Name"
+            placeholder="Employee Name"
           /> 
-          <input
-            value={this.state.lastName}
-            name="lastName"
-            onChange={this.handleInputChange}
-            type="text"
-            placeholder="Last Name"
-          />
-          <button onClick={this.handleFormSubmit}>Submit</button>
-
-       
+          <button onClick={this.handleFormSubmit}>Submit</button>       
       </header>
       
     );

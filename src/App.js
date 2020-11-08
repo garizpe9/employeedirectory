@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import EmployeeCard from "./components/EmployeeCard";
 import Wrapper from "./components/Wrapper";
 import Title from "./components/Title";
-import worker from "./friends.json";
+import worker from "../utils/API";
 import Form from "./components/Form";
-
+//import API from "../utils/API";
 class App extends Component {
   // Setting this.state.friends to the friends json array
   state = {
