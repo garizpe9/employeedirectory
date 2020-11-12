@@ -6,18 +6,22 @@ import API from "../utils/API";
 class SearchResultContainer extends Component {
   state = {
     search: "",
-    employee: []
+    employee: [],
+    employeeName: [],
   };
 
   // When this component mounts, search the Giphy API for pictures of kittens
   componentDidMount() {
-    this.searchGiphy("");
+    this.searchGiphy();
+    
   }
-
+  //Grabs API Results
   searchGiphy = query => {
     API.search(query)
-      .then(res => this.setState({ employee: res.data.results }))
+      .then(res => this.setState({ employee: res.data.results, employeeName: res.data.results}))
       .catch(err => console.log(err));
+
+
   };
 
   handleInputChange = event => {
@@ -26,12 +30,12 @@ class SearchResultContainer extends Component {
     this.setState({
       [name]: value
     });
-  };
-
-  // When the form is submitted, search the Giphy API for `this.state.search`
-  handleFormSubmit = event => {
-    event.preventDefault();
-    this.searchGiphy(this.state.search);
+    const results = this.state.employee.filter(person => {
+      
+      var names = person.name.first.toLowerCase()
+      
+      return (names.indexOf(value.toLowerCase()) !== -1)})
+    this.setState({employeeName: results})
   };
 
   render() {
@@ -39,10 +43,13 @@ class SearchResultContainer extends Component {
       <div>
         <SearchForm
           search={this.state.search}
-          handleFormSubmit={this.handleFormSubmit}
+          //handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
+
         />
-        <ResultList employee={this.state.employee} />
+        <ResultList employee={this.state.employeeName} />
+        {/* need to somehow filter and sort  - can use npm or .filter /sort*/}
+        
       </div>
     );
   }
