@@ -1,37 +1,22 @@
 import React from "react";
 
 
-{/* <ul className="list-group">
-{props.employee.map(result => (
-  <li className="list-group-item" key={result.login.uuid}>
-    {<li><h1>{result.name.first} {result.name.last}</h1></li>}
-    {<img alt={result.login.uuid} className="img-fluid" src={result.picture.large} />}<br></br>
-    {result.cell} <br></br>
-    {result.email} <br></br>
-    {result.location.city}, {result.location.state}
-    
-  </li>
-))}
-</ul> */}
-
-
-
 function ResultList(props) {
-  return (
-    <ul className="list-group">
+  return(
+ 
+  
+  props.employee.map(result => (
+    <tr key={result.login.uuid}>
+      <td>{<img alt={result.login.uuid} className="img-fluid" src={result.picture.large}/>} </td>
+      <td>{result.name.first} </td>
+      <td>{result.name.last} </td>
+      <td>{result.cell} </td>
+      <td>{result.email} </td>
+      <td> {result.location.city}, {result.location.state}</td>
+    </tr>))
+  
+  ) 
 
-       {props.employee.map(result => (
-        <li className="list-group-item" key={result.login.uuid}>
-          {<h1>{result.name.first} {result.name.last}</h1>}
-          {<img alt={result.login.uuid} className="img-fluid" src={result.picture.large} />}<br></br>
-          {result.cell} <br></br>
-          {result.email} <br></br>
-          {result.location.city}, {result.location.state}
-          
-        </li>
-      ))} 
-    </ul>
-  );
 }
 
 export default ResultList;

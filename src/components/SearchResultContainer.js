@@ -10,7 +10,6 @@ class SearchResultContainer extends Component {
     employeeName: [],
   };
 
-  // When this component mounts, search the Giphy API for pictures of kittens
   componentDidMount() {
     this.searchGiphy();
     
@@ -20,8 +19,6 @@ class SearchResultContainer extends Component {
     API.search(query)
       .then(res => this.setState({ employee: res.data.results, employeeName: res.data.results}))
       .catch(err => console.log(err));
-
-
   };
 
   handleInputChange = event => {
@@ -45,11 +42,22 @@ class SearchResultContainer extends Component {
         <SearchForm
           search={this.state.search}
           handleInputChange={this.handleInputChange}
-
         />
+        
+         <thead>
+          <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Phone Number</th>
+            <th>E-mail</th>
+            <th>Location</th>
+          </tr>
+        </thead>
+        <tbody>
         <ResultList employee={this.state.employeeName} />
         {/* need to somehow filter and sort  - can use npm or .filter /sort*/}
-        
+        </tbody>
       </div>
     );
   }
