@@ -31,11 +31,12 @@ class SearchResultContainer extends Component {
       [name]: value
     });
     const results = this.state.employee.filter(person => {
-      
-      var names = person.name.first.toLowerCase()
-      
-      return (names.indexOf(value.toLowerCase()) !== -1)})
+      var objectone = person.name.first.toLowerCase();
+      var objecttwo = person.name.last.toLowerCase();
+      var merged = objectone.concat(objecttwo)
+      return (merged.indexOf(value.toLowerCase()) !== -1)})
     this.setState({employeeName: results})
+    console.log (results)
   };
 
   render() {
@@ -43,7 +44,6 @@ class SearchResultContainer extends Component {
       <div>
         <SearchForm
           search={this.state.search}
-          //handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
 
         />
@@ -56,3 +56,8 @@ class SearchResultContainer extends Component {
 }
 
 export default SearchResultContainer;
+
+
+//create another component - button somewhere 
+//button call a function 
+// .sort << write a compare function ; if it's ascending or descending
