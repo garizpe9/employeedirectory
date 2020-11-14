@@ -37,7 +37,25 @@ class SearchResultContainer extends Component {
     console.log (results)
   };
 
-  onClicks = event => {event.preventDefault(); console.log ('sucess')}
+  onClicks = event => {event.preventDefault();
+    //var listing = this.state.employeeName;
+    // var alpha = this.state.employeeName//listing.slice(0);
+    // alpha.sort =(a,b) => {
+    //   var x = a.listing.toLowerCase();
+    //   var y = b.listing.toLowerCase();
+    //   return x < y ? -1 : x > y ? 1 : 0;
+    // }
+
+    var byName = this.state.employeeName.slice(0);
+byName.sort(function(a,b) {
+    var x = a.name.first.toLowerCase();
+    var y = b.name.first.toLowerCase();
+    return x < y ? -1 : x > y ? 1 : 0;
+});
+
+console.log('by name:');
+console.log(byName);
+   }
 
   render() {
     return (
