@@ -14,9 +14,9 @@ function ResultList(props) {
       <td>{result.email} </td>
       <td> {result.location.city}, {result.location.state}</td>
     </tr>))
-  
+    
   ) 
-
+ 
 }
 
 export default ResultList;

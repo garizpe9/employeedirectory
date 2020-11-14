@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import SearchForm from "./SearchForm";
 import ResultList from "./ResultList";
 import API from "../utils/API";
+// import Tablehead from "./Tablehead";
 
 class SearchResultContainer extends Component {
   state = {
@@ -36,6 +37,8 @@ class SearchResultContainer extends Component {
     console.log (results)
   };
 
+  onClicks = event => {event.preventDefault(); console.log ('sucess')}
+
   render() {
     return (
       <div>
@@ -46,8 +49,8 @@ class SearchResultContainer extends Component {
         
          <thead>
           <tr>
-            <th>#</th>
-            <th>First Name</th>
+            <th></th>
+            <th>First Name</th><button onClick={this.onClicks}>BUTTON</button>
             <th>Last Name</th>
             <th>Phone Number</th>
             <th>E-mail</th>
@@ -69,3 +72,17 @@ export default SearchResultContainer;
 //create another component - button somewhere 
 //button call a function 
 // .sort << write a compare function ; if it's ascending or descending
+
+//8 components
+//wrapper - not a lot going on
+    //header - just a header class 
+      //main - body of  actual app - 
+          //data area [ more structured/ set of code  state being defined  will have the ability to sort]
+      //nav
+      
+      //data table
+      //searchbox
+        //data body
+
+
+//wrapper
