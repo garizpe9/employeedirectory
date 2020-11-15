@@ -1,13 +1,18 @@
-// import React from "react";
+import React from "react";
+import Button from "./Button";
+function Tablehead() {
+  return (
+    <thead>
+    <tr>
+      <th></th>
+      <th>First Name</th> <Button></Button>
+      <th>Last Name</th>
+      <th>Phone Number</th>
+      <th>E-mail</th>
+      <th>Location</th>
+    </tr>
+  </thead>      
+  );
+}
 
-// function Tablehead(props) {
-//     return(
-   
-    
-//     <button name= "button" onClick={props.onClicks}>Sort</button>
-      
-//     ) 
-   
-//   }
-  
-//   export default Tablehead;
+export default Tablehead;

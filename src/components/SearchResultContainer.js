@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import SearchForm from "./SearchForm";
 import ResultList from "./ResultList";
 import API from "../utils/API";
-// import Tablehead from "./Tablehead";
-
+import Wrapper from "./Wrapper";
+import "./style.css";
+import { Table, Button } from 'reactstrap';
 class SearchResultContainer extends Component {
   state = {
     search: "",
@@ -34,53 +35,63 @@ class SearchResultContainer extends Component {
       var merged = objectone.concat(objecttwo)
       return (merged.indexOf(value.toLowerCase()) !== -1)})
     this.setState({employeeName: results})
-    console.log (results)
+    
   };
 
-  onClicks = event => {event.preventDefault();
+  firstName = event => {event.preventDefault();
     var byName = this.state.employeeName.slice(0);
     byName.sort(function(a,b) {
     var x = a.name.first.toLowerCase();
     var y = b.name.first.toLowerCase();
     return (x < y ? -1 : x > y ? 1 : 0);
-    
-});
+    });
   this.setState({employeeName: byName})
-      }
+    }
+
+  lastName = event => {event.preventDefault();
+    var byName = this.state.employeeName.slice(0);
+    byName.sort(function(a,b) {
+    var x = a.name.last.toLowerCase();
+    var y = b.name.last.toLowerCase();
+    return (x < y ? -1 : x > y ? 1 : 0);
+    });
+  this.setState({employeeName: byName})
+    }
+
 
   render() {
     return (
-      <div>
+    
+        <Wrapper>
         <SearchForm
           search={this.state.search}
           handleInputChange={this.handleInputChange}
         />
-        
+        <Table>
          <thead>
           <tr>
             <th></th>
-            <th>First Name</th><button onClick={this.onClicks}>BUTTON</button>
-            <th>Last Name</th>
+            <th>First Name <Button onClick={this.firstName}>Sort</Button></th>
+            <th>Last Name <Button onClick={this.lastName}>Sort</Button></th>
             <th>Phone Number</th>
             <th>E-mail</th>
             <th>Location</th>
           </tr>
         </thead>
+        
         <tbody>
+        
         <ResultList employee={this.state.employeeName} />
-        {/* need to somehow filter and sort  - can use npm or .filter /sort*/}
+       
         </tbody>
-      </div>
+        </Table>
+        </Wrapper>
+     
     );
   }
 }
 
 export default SearchResultContainer;
-
-
-//create another component - button somewhere 
-//button call a function 
-// .sort << write a compare function ; if it's ascending or descending
 
 //8 components
 //wrapper - not a lot going on
