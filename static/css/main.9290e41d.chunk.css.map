@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/components/style.css"],"names":[],"mappings":"AAAA,SACE,eAAgB,CAChB,oBACF","file":"main.9290e41d.chunk.css","sourcesContent":[".wrapper {\n  min-height: 100%;\n  padding-bottom: 100px;\n}\n"]}
