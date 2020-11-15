@@ -46,7 +46,7 @@ class SearchResultContainer extends Component {
     return (x < y ? -1 : x > y ? 1 : 0);
     });
   this.setState({employeeName: byName})
-    }
+    };
 
   lastName = event => {event.preventDefault();
     var byName = this.state.employeeName.slice(0);
@@ -56,12 +56,11 @@ class SearchResultContainer extends Component {
     return (x < y ? -1 : x > y ? 1 : 0);
     });
   this.setState({employeeName: byName})
-    }
+    };
 
 
   render() {
     return (
-    
         <Wrapper>
         <SearchForm
           search={this.state.search}
@@ -78,31 +77,12 @@ class SearchResultContainer extends Component {
             <th>Location</th>
           </tr>
         </thead>
-        
-        <tbody>
-        
+        <tbody> 
         <ResultList employee={this.state.employeeName} />
-       
         </tbody>
         </Table>
         </Wrapper>
-     
-    );
+    )
   }
 }
-
 export default SearchResultContainer;
-
-//8 components
-//wrapper - not a lot going on
-    //header - just a header class 
-      //main - body of  actual app - 
-          //data area [ more structured/ set of code  state being defined  will have the ability to sort]
-      //nav
-      
-      //data table
-      //searchbox
-        //data body
-
-
-//wrapper
