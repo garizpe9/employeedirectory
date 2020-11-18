@@ -9,7 +9,7 @@
 * [Questions](#questions)
 
 ## Description
-<img src=https://github.com/garizpe9/PWA/blob/main/public/icons/Capture.JPG>
+<img src=https://github.com/garizpe9/employeedirectory/blob/main/public/Capture.JPG>
 
 This app uses a random user API and react to dynamically filter and sort information. The information automatically generates 200 names. From the search bar, the names can be filtered by their first or last name.
 The button next to the first/last name sort the rendered users.
